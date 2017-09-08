@@ -1,0 +1,17 @@
+framework:auto-detect
+
+//source C:\Code\LocalPackages
+//source https://academicwork.pkgs.visualstudio.com/DefaultCollection/_packaging/core/nuget/v3/index.json
+source https://api.nuget.org/v3/index.json
+source https://nuget.org/api/v2
+
+nuget Microsoft.NET.Test.Sdk prerelease
+nuget xunit prerelease
+nuget xunit.runner.visualstudio prerelease
+nuget nest
+
+group build
+	
+	source https://api.nuget.org/v3/index.json
+
+    nuget FAKE prerelease

@@ -9,6 +9,8 @@ nuget Microsoft.NET.Test.Sdk prerelease
 nuget xunit prerelease
 nuget xunit.runner.visualstudio prerelease
 nuget nest
+nuget serilog
+nuget shouldly
 
 group build
 	

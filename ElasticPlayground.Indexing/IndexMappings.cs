@@ -23,6 +23,7 @@ namespace ElasticPlayground.Indexing
                     .NumberOfShards(2)
                     .NumberOfReplicas(0)
                     .Analysis(Analysis)
+                    
                 )
                 .Mappings(m => m
                     .Map<SearchableItem<object>>(SearchableItemMapper)
@@ -30,11 +31,15 @@ namespace ElasticPlayground.Indexing
             );
         }
 
-        private static TypeMappingDescriptor<SearchableItem<T>> SearchableItemMapper<T>(TypeMappingDescriptor<SearchableItem<T>> map) where T : class => map
+        private static TypeMappingDescriptor<SearchableItem<T>> SearchableItemMapper<T>(TypeMappingDescriptor<SearchableItem<T>> map) where T : class => 
+            map
+            .AllField(x=>x.Enabled(false))
             .Properties(ps => ps
+                
                 .Object<T>(x=>x.Name(p=>p.Data).Enabled(false).IncludeInAll(false))
                 .Text(t => t.Name(p => p.Text))
                 .Text(t=>t.Name(p=>p.BoostedText).Boost(2))
+                .Keyword(k=>k.Name(p=>p.Type))                
                 .Nested<Attributes<int>>(n => n
                     .Name(p => p.IntFilters)
                     .Properties(pps => pps

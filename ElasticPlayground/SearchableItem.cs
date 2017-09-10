@@ -5,8 +5,11 @@ namespace ElasticPlayground
     // TODO: How to handle Id and version?
     public class SearchableItem<T>
     {
+        public int Id { get; set; }
+        public int Version { get; set; }    
+        public string Type { get; set; }
         public T Data { get; set; }
-        public string Text { get; set; }
+        public string Text { get; set; }    
         public string BoostedText { get; set; }
         public Attributes<int>[] IntFilters { get; set; }
         public Attributes<string>[] StringFilters { get; set; }

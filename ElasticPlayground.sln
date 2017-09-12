@@ -8,11 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{EEE2AB
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticPlayground.Domain", "ElasticPlayground\ElasticPlayground.Domain.csproj", "{92EC1F8F-C21D-48C3-8543-7BCAE47FA38F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticPlayground.Domain", "ElasticPlayground.Domain\ElasticPlayground.Domain.csproj", "{92EC1F8F-C21D-48C3-8543-7BCAE47FA38F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticPlayground.Indexing", "ElasticPlayground.Indexing\ElasticPlayground.Indexing.csproj", "{968A42A7-798D-47CF-9669-0F4ACBCA96D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticPlayground.Tests", "ElasticPlayground.Tests\ElasticPlayground.Tests.csproj", "{5CC9145F-F284-459D-8926-C530A69FB346}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticPlayground.IntegrationTests", "ElasticPlayground.IntegrationTests\ElasticPlayground.IntegrationTests.csproj", "{5CC9145F-F284-459D-8926-C530A69FB346}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

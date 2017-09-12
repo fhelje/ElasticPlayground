@@ -10,6 +10,7 @@ nuget xunit prerelease
 nuget xunit.runner.visualstudio prerelease
 nuget nest
 nuget serilog
+nuget Serilog.Sinks.ColoredConsole
 nuget shouldly
 
 group build

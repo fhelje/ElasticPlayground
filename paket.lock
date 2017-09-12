@@ -91,7 +91,7 @@ NUGET
     Serilog.Sinks.ColoredConsole (3.0.1)
       NETStandard.Library (>= 1.6.1)
       Serilog.Sinks.Console (>= 3.0.1)
-    Serilog.Sinks.Console (3.0.1)
+    Serilog.Sinks.Console (3.1)
       serilog (>= 2.5)
       System.Console (>= 4.3)
       System.Runtime.InteropServices (>= 4.3)

@@ -300,3 +300,4 @@ __pycache__/
 
 .paket
 packages
+.DS_Store

@@ -1,13 +1,13 @@
 using System;
+using System.Text;
 using System.Threading.Tasks;
 using ElasticPlayground.Indexing;
 using Nest;
-using Xunit;
-using Shouldly;
 using Serilog;
-using System.Text;
+using Shouldly;
+using Xunit;
 
-namespace ElasticPlayground.Tests
+namespace ElasticPlayground.IntegrationTests
 {
 
     public class VersionTests
@@ -62,7 +62,8 @@ namespace ElasticPlayground.Tests
                 Name = "Name",
                 Active = true
             }.ToSearchableItem();
-            var indexResult = await sut.Index(item);
+            var indexResult1 = await sut.Index(item);
+            indexResult1.ShouldBe(true);
             item = new IndexTest
             {
                 Id = 1,
@@ -70,8 +71,8 @@ namespace ElasticPlayground.Tests
                 Name = "Name2",
                 Active = false
             }.ToSearchableItem();
-            indexResult = await sut.Index(item);
-            indexResult.ShouldBeFalse();
+            var indexResult2 = await sut.Index(item);
+            indexResult2.ShouldBeFalse();
 
             CleanUpIndex(client, config);
         }

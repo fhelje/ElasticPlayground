@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Elasticsearch.Net;
 using Nest;
@@ -62,23 +61,20 @@ namespace ElasticPlayground.Indexing
            return retval;
         }
 
-        private void LogError(IndexResult indexResult)
+        private static void LogError(IndexResult indexResult)
         {
-            switch (indexResult.ErrorType)
+            if (indexResult.ErrorType == ErrorType.Failed)
+                Log.Error(indexResult.Message);
+            else if (indexResult.ErrorType == ErrorType.VersionConflict)
             {
-                case ErrorType.Failed:
-                    Log.Error(indexResult.Message);
-                    break;
-                case ErrorType.VersionConflict:
-                    Log.Debug(indexResult.Message);
-                    break;
+                Log.Debug(indexResult.Message);
             }
         }
 
         private IndexResult CreateErrorResult(BulkResponseItemBase item)
         {
             string message = null;
-            ErrorType errorType = ErrorType.None;
+            var errorType = ErrorType.None;
             if (!item.IsValid)
             {
                 errorType = GetErrorType(item.Error);

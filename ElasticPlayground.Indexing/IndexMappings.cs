@@ -81,7 +81,7 @@ namespace ElasticPlayground.Indexing
             );
         private static AnalysisDescriptor Analysis(AnalysisDescriptor analysis) => analysis
             .CharFilters(c=>c.Mapping("swedish_char_mapping", m=>m.Mappings("w => v", "W => V")))
-            .TokenFilters(tf=>tf.Hunspell("sv_SE", x=>x.Dedup(true).Locale("sv_SE")))
+            .TokenFilters(tf=>tf.Hunspell("sv_SE", x=>x.Dedup().Locale("sv_SE")))
             .Analyzers(analyzers => analyzers
                 .Custom(LowercaseKeywordAnalyserName, c => c
                     .Tokenizer("keyword")

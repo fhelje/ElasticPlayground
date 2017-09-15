@@ -1,4 +1,4 @@
-namespace ElasticPlayground.Tests
+namespace ElasticPlayground.IntegrationTests
 {
     public static class IndexTestExtensions
     {

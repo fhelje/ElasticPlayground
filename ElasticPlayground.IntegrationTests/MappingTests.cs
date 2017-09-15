@@ -1,12 +1,11 @@
 using System;
 using ElasticPlayground.Indexing;
 using Nest;
-using Xunit;
 using Serilog;
-using System.Collections.Generic;
 using Shouldly;
+using Xunit;
 
-namespace ElasticPlayground.Tests
+namespace ElasticPlayground.IntegrationTests
 {
 
     public class MappingTests
@@ -26,7 +25,8 @@ namespace ElasticPlayground.Tests
             var client = new ElasticClient(new ConnectionSettings(new Uri("http://localhost:9200")));
             var indexMappings = new IndexMappings(config, client);
             var result = indexMappings.CreateIndex();
-            result.IsValid.ShouldBeTrue(result.ServerError.Error.CausedBy.Reason);
+
+            result.IsValid.ShouldBeTrue();
 
             CleanUpIndex(client, config);
         }

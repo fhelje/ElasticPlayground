@@ -1,6 +1,6 @@
 using System;
 
-namespace ElasticPlayground.Tests
+namespace ElasticPlayground.IntegrationTests
 {
     public class IndexTest
     {

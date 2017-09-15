@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using ElasticPlayground.Indexing;
 using Nest;
-using Xunit;
-using Shouldly;
 using Serilog;
-using System.Text;
-using System.Linq;
+using Shouldly;
+using Xunit;
 
-namespace ElasticPlayground.Tests
+namespace ElasticPlayground.IntegrationTests
 {
     public class BulkIndexTests
     {
@@ -53,8 +54,9 @@ namespace ElasticPlayground.Tests
             var sut = new Indexer(client, config);
             var result = await sut.IndexMany(data.Select(x=>x.ToSearchableItem()));
 
-            result.Count(x => x.IsValid == true).ShouldBe(5);
-            result.Count(x=>x.IsValid == false).ShouldBe(5);
+            var indexResults = result as IList<IndexResult> ?? result.ToList();
+            indexResults.Count(x => x.IsValid).ShouldBe(5);
+            indexResults.Count(x=>x.IsValid == false).ShouldBe(5);
 
             CleanUpIndex(client, config);
         }
